@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fugo Fuel | 15-Minute Delivery</title>
+<meta name="description" content="On-demand fuel delivery and vehicle services in 15 minutes.">
+<meta name="theme-color" content="#0E1512">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fugo Fuel">
+<meta property="og:title" content="Fugo Fuel | 15-Minute Delivery">
+<meta property="og:description" content="On-demand fuel delivery and vehicle services in 15 minutes.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='11' fill='%23FF5A1F'/%3E%3Cpath d='M18 7C18 7 10 15.6 10 21.3a8 8 0 0 0 16 0C26 15.6 18 7 18 7z' fill='%230E1512'/%3E%3Cpath d='M16 18.6l5.4 3.1-5.4 3.1z' fill='%23FF5A1F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Every "Order" button links to the live app at https://fugofuel.netlify.app/. Deploy this file as its own Netlify site (or on a custom domain). If it replaces the app at that address, change those links first. -->
+<style>
+:root{
+  color-scheme:light;
+  --ink:#0E1512;
+  --ink-2:#17211C;
+  --edge:#2B3832;
+  --edge-2:#3A4A43;
+  --paper:#F3F4F0;
+  --paper-2:#E6E9E0;
+  --card:#FFFFFF;
+  --line:#D5DACF;
+  --line-2:#C3CABC;
+  --muted:#58625B;
+  --soft:#A5B1AA;
+  --soft-2:#C9D2CC;
+  --dim:#8A978F;
+  --accent:#FF5A1F;
+  --display:'Bricolage Grotesque','Instrument Sans',system-ui,sans-serif;
+  --body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(20px,4vw,48px);
+  --pad-y:clamp(56px,8vw,104px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:none;box-shadow:0 0 0 3px var(--paper),0 0 0 6px var(--ink)}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+
+.skip{position:absolute;left:12px;top:-64px;z-index:10;padding:12px 18px;border-radius:12px;background:var(--paper);color:var(--ink);font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+
+.ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.lg-tile{fill:var(--accent)}
+.lg-drop{fill:var(--ink)}
+.lg-go{fill:var(--accent)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;font-weight:600;font-size:17px;text-decoration:none;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-ghost{padding:0 26px;border:1.5px solid var(--edge-2);color:var(--paper)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-sm{min-height:46px;padding:0 22px;font-size:15px}
+
+.site-header{background:var(--ink);color:var(--paper)}
+.bar{max-width:1240px;margin:0 auto;padding:16px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper)}
+.brand svg{flex:none}
+.brand span{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.045em;line-height:1}
+.nav{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500}
+.nav a{padding:12px 0;color:var(--soft-2);text-decoration:none}
+.nav a:hover{color:var(--paper)}
+
+.hero{background-color:var(--ink);background-image:radial-gradient(#1C2823 1.3px,transparent 1.4px);background-size:30px 30px;color:var(--paper);padding:clamp(32px,5vw,64px) var(--gutter) clamp(56px,8vw,104px)}
+.hero-grid{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:56px 64px}
+.hero-copy{flex:1 1 440px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--edge);border-radius:999px;background:var(--ink);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero h1{margin-top:24px;font-family:var(--display);font-weight:800;font-size:clamp(40px,7.2vw,92px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+.hero h1 .hl{color:var(--accent)}
+.lede{margin-top:24px;max-width:520px;font-size:clamp(17px,2vw,20px);line-height:1.5;color:var(--soft)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.ticks{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:36px;font-size:15px;color:var(--soft)}
+.ticks li{display:inline-flex;align-items:center;gap:8px}
+.ticks .ico{color:var(--accent)}
+
+.hero-card{flex:1 1 380px;min-width:0;max-width:540px}
+.order{background:var(--ink-2);border:1px solid var(--edge);border-radius:32px;padding:clamp(20px,3vw,32px)}
+.order-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.order-top .label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.pill{padding:6px 14px;border-radius:999px;background:var(--accent);color:var(--ink);font-weight:600;font-size:13px}
+.gauge{display:block;width:100%;max-width:440px;height:auto;margin:12px auto 8px}
+.gauge-arc{stroke:var(--accent);stroke-dasharray:377;stroke-dashoffset:22.6;transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)}
+.gauge-needle{transform-box:view-box;transform-origin:160px 160px;transform:rotate(79.2deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.no-anim .gauge-arc,.no-anim .gauge-needle{transition:none}
+.track{margin-top:8px}
+.track li{display:flex;align-items:center;gap:14px;padding:7px 0;font-size:16px;font-weight:500;color:var(--dim);transition:color .3s ease}
+.track .dot{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--edge-2);transition:background .3s ease,border-color .3s ease}
+.track li.on{color:var(--paper)}
+.track li.on .dot{background:var(--accent);border-color:var(--accent)}
+.order .note{margin-top:16px;font-size:12px;color:var(--dim)}
+
+.ticker{background:var(--accent);color:var(--ink);overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:ticker 36s linear infinite;will-change:transform}
+.ticker-set{display:flex;flex:none;align-items:center}
+.ticker-set span{display:inline-flex;align-items:center;gap:28px;padding:16px 0 16px 28px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase}
+.ticker-set span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--ink)}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+.section{padding:var(--pad-y) var(--gutter)}
+.wrap{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.section h2{margin-top:14px;font-family:var(--display);font-weight:800;font-size:clamp(34px,5.2vw,64px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.1;letter-spacing:-.02em}
+
+.how{background:var(--paper)}
+.split{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 56px}
+.split>div{flex:1 1 460px;min-width:0}
+.split>p{flex:1 1 300px;max-width:400px;font-size:18px;color:var(--muted)}
+.steps{display:flex;flex-wrap:wrap;gap:16px;margin-top:clamp(36px,5vw,56px)}
+.step{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:20px;padding:clamp(24px,3vw,36px);background:var(--card);border:1px solid var(--line);border-radius:28px}
+.step-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.step p{font-size:17px;color:var(--muted)}
+.num{font-family:var(--display);font-weight:800;font-size:56px;line-height:1;letter-spacing:-.04em;color:var(--line)}
+.tile{width:52px;height:52px;border-radius:16px;background:var(--accent);display:flex;align-items:center;justify-content:center}
+.tile svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tile.lg{width:56px;height:56px;border-radius:18px}
+.tile.lg svg{width:28px;height:28px}
+.tile.dark{background:var(--ink)}
+.tile.dark svg{stroke:var(--accent)}
+
+.services{background:var(--paper-2)}
+.services h2{max-width:760px}
+.bento{display:flex;flex-wrap:wrap;gap:16px;margin-top:clamp(36px,5vw,56px)}
+.feature{position:relative;overflow:hidden;flex:7 1 440px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:56px;padding:clamp(28px,4vw,48px);background:var(--ink);color:var(--paper);border-radius:32px}
+.rings{position:absolute;right:-70px;bottom:-70px;width:min(320px,62%);height:auto}
+.rings circle{fill:none;stroke:#1D2924;stroke-width:2}
+.rings .hand{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round}
+.feature-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:7px 16px;border:1px solid var(--edge-2);border-radius:999px;font-size:14px;font-weight:500;color:var(--soft-2)}
+.feature-body{position:relative}
+.feature h3{font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1;letter-spacing:-.035em}
+.feature p{margin-top:16px;max-width:420px;font-size:18px;color:var(--soft)}
+.stack{flex:5 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.mini{flex:1;display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,36px);border-radius:32px}
+.mini h3{font-size:28px;letter-spacing:-.025em}
+.mini p{font-size:17px}
+.mini.light{background:var(--card);border:1px solid var(--line)}
+.mini.light h3{margin-top:6px}
+.mini.light p{color:var(--muted)}
+.mini.bold{background:var(--accent);color:var(--ink)}
+.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+
+.fleets{background:var(--ink);color:var(--paper)}
+.fleets .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px 72px}
+.fleets-copy{flex:1 1 420px;min-width:0}
+.fleets .eyebrow{color:var(--accent)}
+.fleets .lead{margin-top:20px;max-width:480px;font-size:18px;color:var(--soft)}
+.fleets .btn{margin-top:32px}
+.points{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.points li{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--ink-2);border:1px solid var(--edge);border-radius:20px;font-size:18px}
+.points .ico{width:22px;height:22px;color:var(--accent)}
+
+.faq{background:var(--paper)}
+.faq .wrap{display:flex;flex-wrap:wrap;gap:40px 72px}
+.faq-head{flex:1 1 280px;min-width:0}
+.faq-head p{margin-top:20px;max-width:320px;font-size:18px;color:var(--muted)}
+.faq-list{flex:2 1 460px;min-width:0;border-bottom:1px solid var(--line-2)}
+details{border-top:1px solid var(--line-2)}
+summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;font-family:var(--display);font-weight:700;font-size:clamp(18px,2.2vw,22px);letter-spacing:-.01em;line-height:1.25;list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary svg{flex:none;width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;transition:transform .2s ease}
+details[open] summary svg{transform:rotate(45deg)}
+details p{max-width:640px;margin-bottom:26px;font-size:17px;color:var(--muted)}
+
+.cta{background:var(--accent);color:var(--ink)}
+.cta .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 56px}
+.cta h2{flex:1 1 440px;min-width:0;margin:0;font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,96px);line-height:.94;letter-spacing:-.045em;text-wrap:balance}
+.cta-side{flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:20px}
+.cta-side p{font-size:19px}
+.mail{display:inline-flex;align-items:center;min-height:44px;font-size:16px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+
+.site-footer{padding:36px var(--gutter);background:var(--ink);color:var(--soft)}
+.foot{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.foot .brand span{font-size:23px}
+.foot nav{display:flex;flex-wrap:wrap;gap:4px 24px;font-size:15px}
+.foot nav a{padding:10px 0;color:var(--soft);text-decoration:none}
+.foot nav a.order-link{color:var(--paper)}
+.foot p{font-size:14px}
+
+@media (max-width:760px){.nav{display:none}.rings .hand{display:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none}
+  .btn,.gauge-arc,.gauge-needle,.track li,.track .dot,summary svg{transition:none}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 12-8 12S4 15.5 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6.5h11v10h-11z"/><path d="M13.5 9.5h4l3.5 3.5v3.5h-7.5z"/><circle cx="7" cy="17.8" r="1.9"/><circle cx="17" cy="17.8" r="1.9"/></symbol>
+  <symbol id="i-done" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/></symbol>
+  <symbol id="i-pump" viewBox="0 0 24 24"><path d="M4 21V5.5A2.5 2.5 0 0 1 6.5 3h5A2.5 2.5 0 0 1 14 5.5V21"/><path d="M3 21h12"/><path d="M6.5 8h5"/><path d="M14 10.5h1.8a1.7 1.7 0 0 1 1.7 1.7v3.1a1.7 1.7 0 0 0 3.4 0V9L18 6"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Fugo Fuel home">
+      <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="lg-tile" width="36" height="36" rx="11"/><path class="lg-drop" d="M18 7C18 7 10 15.6 10 21.3a8 8 0 0 0 16 0C26 15.6 18 7 18 7z"/><path class="lg-go" d="M16 18.6l5.4 3.1-5.4 3.1z"/></svg>
+      <span>fugo</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#services">Services</a>
+      <a href="#fleets">Fleets</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-accent btn-sm" href="https://fugofuel.netlify.app/">Order now</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="chip"><span class="dot" aria-hidden="true"></span>On-demand fuel &amp; vehicle services</div>
+        <h1>Fuel and repairs, delivered in <span class="hl">15&nbsp;minutes.</span></h1>
+        <p class="lede">Out of fuel or stuck with a flat? Fugo brings fuel and a mechanic to your vehicle. No queues, no detours.</p>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="https://fugofuel.netlify.app/">Order fuel now<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <ul class="ticks">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Petrol &amp; diesel</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Roadside repairs</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fleets welcome</li>
+        </ul>
+      </div>
+
+      <div class="hero-card">
+        <div class="order" id="order-card">
+          <div class="order-top">
+            <span class="label">Your order</span>
+            <span class="pill" id="pill">Done</span>
+          </div>
+          <svg class="gauge" viewBox="0 24 320 172" aria-hidden="true">
+            <path d="M40 160A120 120 0 0 1 280 160" fill="none" stroke="#2B3832" stroke-width="14" stroke-linecap="round"/>
+            <path class="gauge-arc" d="M40 160A120 120 0 0 1 280 160" fill="none" stroke-width="14" stroke-linecap="round"/>
+            <path d="M68 160L58 160M75 124.8L65.8 121M95 95L87.9 87.9M124.8 75L121 65.8M160 68L160 58M195.2 75L199 65.8M225 95L232.1 87.9M245 124.8L254.2 121M252 160L262 160" fill="none" stroke="#3A4A43" stroke-width="2" stroke-linecap="round"/>
+            <g class="gauge-needle"><path d="M155 160L160 64L165 160Z" fill="#F3F4F0"/></g>
+            <circle cx="160" cy="160" r="12" fill="#F3F4F0"/>
+            <circle cx="160" cy="160" r="4.5" fill="#17211C"/>
+            <text x="40" y="188" text-anchor="middle" fill="#A5B1AA" font-size="15" font-weight="700" font-family="Bricolage Grotesque, sans-serif">E</text>
+            <text x="280" y="188" text-anchor="middle" fill="#A5B1AA" font-size="15" font-weight="700" font-family="Bricolage Grotesque, sans-serif">F</text>
+          </svg>
+          <ol class="track">
+            <li class="on"><span class="dot"></span>Request placed</li>
+            <li class="on"><span class="dot"></span>Fugo dispatched</li>
+            <li class="on"><span class="dot"></span>On the way</li>
+            <li class="on"><span class="dot"></span>Fuelled up</li>
+          </ol>
+          <p class="note">Illustration of the ordering flow</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-set"><span>Fuel delivery</span><span>Flat tyres</span><span>Dead batteries</span><span>Minor repairs</span><span>Fleet refuelling</span><span>15-minute delivery</span></div>
+      <div class="ticker-set"><span>Fuel delivery</span><span>Flat tyres</span><span>Dead batteries</span><span>Minor repairs</span><span>Fleet refuelling</span><span>15-minute delivery</span></div>
+    </div>
+  </div>
+
+  <section class="section how" id="how">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>Three steps to a full tank.</h2>
+        </div>
+        <p>Out of fuel at home or stuck at the roadside, the flow is the same.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-top">
+            <div class="tile"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
+            <span class="num" aria-hidden="true">01</span>
+          </div>
+          <h3>Tell us what you need</h3>
+          <p>Choose fuel or a repair and share where your vehicle is parked.</p>
+        </li>
+        <li class="step">
+          <div class="step-top">
+            <div class="tile"><svg aria-hidden="true"><use href="#i-truck"/></svg></div>
+            <span class="num" aria-hidden="true">02</span>
+          </div>
+          <h3>We head your way</h3>
+          <p>A Fugo team member is dispatched straight to your location.</p>
+        </li>
+        <li class="step">
+          <div class="step-top">
+            <div class="tile"><svg aria-hidden="true"><use href="#i-done"/></svg></div>
+            <span class="num" aria-hidden="true">03</span>
+          </div>
+          <h3>Back on the road</h3>
+          <p>Fuel delivered or the fix done on the spot, and you're moving again.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2>Everything your vehicle needs, delivered.</h2>
+      <div class="bento">
+        <article class="feature">
+          <svg class="rings" viewBox="0 0 320 320" aria-hidden="true"><circle cx="160" cy="160" r="150"/><circle cx="160" cy="160" r="110"/><circle cx="160" cy="160" r="70"/><path class="hand" d="M160 160L160 10"/></svg>
+          <div class="feature-top">
+            <div class="tile lg"><svg aria-hidden="true"><use href="#i-pump"/></svg></div>
+            <div class="chips"><span>Petrol</span><span>Diesel</span></div>
+          </div>
+          <div class="feature-body">
+            <h3>Fuel delivery</h3>
+            <p>Fill up without leaving your parking spot. Share your location, choose your fuel, and we bring it to your vehicle.</p>
+          </div>
+        </article>
+        <div class="stack">
+          <article class="mini light">
+            <div class="tile dark"><svg aria-hidden="true"><use href="#i-wrench"/></svg></div>
+            <h3>Roadside repairs</h3>
+            <p>Flat tyre, dead battery or a minor fault? A mechanic comes to you and gets you moving again.</p>
+          </article>
+          <article class="mini bold">
+            <h3>Fleets &amp; businesses</h3>
+            <p>Scheduled refuelling and on-call repairs that keep your vehicles on the road.</p>
+            <a class="more" href="#fleets">Learn more<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fleets" id="fleets">
+    <div class="wrap">
+      <div class="fleets-copy">
+        <p class="eyebrow">For fleets &amp; businesses</p>
+        <h2>Keep every vehicle moving.</h2>
+        <p class="lead">Cut depot runs and downtime with refuelling and repairs that come to your yard or your route.</p>
+        <a class="btn btn-ghost" href="#contact">Talk to us</a>
+      </div>
+      <ul class="points">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Scheduled refuelling at your depot</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>On-call repairs along the route</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fewer depot runs, less downtime</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Set up around your schedule</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="wrap">
+      <div class="faq-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Good to know.</h2>
+        <p>Quick answers before you order.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary><span>How fast will Fugo reach me?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>We aim to be with you in about 15 minutes. Actual arrival depends on your location and traffic.</p>
+        </details>
+        <details>
+          <summary><span>Which fuels can I order?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Petrol and diesel. Tell us which one your vehicle needs when you place the order.</p>
+        </details>
+        <details>
+          <summary><span>What repairs can you handle on the spot?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Quick fixes such as flat tyres, dead batteries and minor faults. If a job needs a workshop, we'll tell you upfront.</p>
+        </details>
+        <details>
+          <summary><span>Is it safe to have fuel delivered?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Safety comes first. Fuel is handled by trained staff, with proper containers and equipment, and only with your vehicle switched off.</p>
+        </details>
+        <details>
+          <summary><span>Where is Fugo available?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>We're launching area by area. Share your location when you order and we'll confirm whether we can reach you.</p>
+        </details>
+        <details>
+          <summary><span>Can businesses and fleets use Fugo?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+          <p>Yes. Fugo works for fleets, delivery vehicles and businesses. Get in touch and we'll set it up around your routes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta" id="contact">
+    <div class="wrap">
+      <h2>Running low? We're on our way.</h2>
+      <div class="cta-side">
+        <p>Order fuel or a repair from your phone. Fleets, drop us a line.</p>
+        <a class="btn btn-ink" href="https://fugofuel.netlify.app/">Order fuel now<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="mail" href="mailto:fugofuel6@gmail.com?subject=Fleet%20enquiry">Fleet enquiries: fugofuel6@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot">
+    <a class="brand" href="#top" aria-label="Fugo Fuel home">
+      <svg width="30" height="30" viewBox="0 0 36 36" aria-hidden="true"><rect class="lg-tile" width="36" height="36" rx="11"/><path class="lg-drop" d="M18 7C18 7 10 15.6 10 21.3a8 8 0 0 0 16 0C26 15.6 18 7 18 7z"/><path class="lg-go" d="M16 18.6l5.4 3.1-5.4 3.1z"/></svg>
+      <span>fugo</span>
+    </a>
+    <nav aria-label="Footer">
+      <a href="#how">How it works</a>
+      <a href="#services">Services</a>
+      <a href="#fleets">Fleets</a>
+      <a href="#faq">FAQ</a>
+      <a class="order-link" href="https://fugofuel.netlify.app/">Order now</a>
+    </nav>
+    <p>&copy; <span id="yr">2026</span> Fugo Fuel</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  var card = document.getElementById('order-card');
+  if (!card) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var needle = card.querySelector('.gauge-needle');
+  var arc = card.querySelector('.gauge-arc');
+  var pill = document.getElementById('pill');
+  var rows = card.querySelectorAll('.track li');
+  var labels = ['Received', 'Dispatched', 'Arriving', 'Done'];
+  var level = [0.04, 0.3, 0.62, 0.94];
+  var LEN = 377;
+
+  function show(i) {
+    needle.style.transform = 'rotate(' + (-90 + 180 * level[i]).toFixed(1) + 'deg)';
+    arc.style.strokeDashoffset = (LEN * (1 - level[i])).toFixed(1);
+    pill.textContent = labels[i];
+    for (var k = 0; k < rows.length; k++) rows[k].classList.toggle('on', k <= i);
+  }
+
+  card.classList.add('no-anim');
+  show(0);
+  void card.offsetWidth;
+  card.classList.remove('no-anim');
+
+  var n = 0;
+  var timer = null;
+  function tick() { n = (n + 1) % 6; show(Math.min(n, 3)); }
+  function start() { if (!timer) timer = setInterval(tick, 1500); }
+  function stop() { clearInterval(timer); timer = null; }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) start(); else stop();
+    }).observe(card);
+  } else {
+    start();
+  }
+})();
+</script>
+</body>
+</html>
